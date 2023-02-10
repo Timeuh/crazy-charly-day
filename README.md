@@ -1,4 +1,4 @@
-# Crazy Charly Day
+# Crazy Charly Day 2023
 
 ## Qu'est-ce que c'est ?
 Il s'agit d'un challenge organisé par l'IUT Charlemagne de Nancy. 
@@ -28,7 +28,7 @@ en 2e année de BUT Informatique
 ## Comment utiliser ce projet ?
 Pour utiliser ce projet, il vous faut d'abord cloner le dépôt :
 
-    git clone @url_du_projet
+    git clone git@github.com:Timeuh/crazy-charly-day.git
 
 Puis une fois le projet ouvert dans votre IDE préféré, installez les dépendances :
 
