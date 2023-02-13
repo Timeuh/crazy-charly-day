@@ -8,7 +8,7 @@ application web. Les meilleurs projets en termes de finition et d'ergonomie sont
 ensuite récompensés.
 
 ## Qui sommes-nous ?
-Notre équipe porte le nom de [à définir] et est composée de 5 membres
+Notre équipe porte le nom de ***Crazy Frog*** et est composée de 5 membres
 en 2e année de BUT Informatique 
 - Timothée Brindejonc
 - Gregory Dardenne
