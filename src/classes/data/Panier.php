@@ -12,6 +12,6 @@ class Panier extends Model
     public $timestamps = false;
 
     public function produit() : BelongsTo {
-        return $this->belongsTo('custumbox\classes\data\Produit', 'id_produit');
+        return $this->belongsTo('custumbox\classes\data\Produit', 'idproduit');
     }
 }
