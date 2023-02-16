@@ -97,17 +97,17 @@ class Inscription extends Action
             header("location: ?action=inscription&error=3");
         }
 
+        $usr = User::where('email','like',$mail)->first();
 
-        if (count(User::where('email','like',$mail->get()))==0){
+        if (count($usr)!=0){
             header("location: ?action=inscription&error=1");
         }
-
 
         $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
 
         $user = new User();
         $user->login = $login;
-        $user->mdp = $mdp;
+        $user->passwd = $mdp;
         $user->email = $mail;
         $user->nom = $nom;
         $user->prenom = $prenom;
