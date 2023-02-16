@@ -49,9 +49,10 @@ class Dispatcher
 <div>
       <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>
-          <div class="flex flex-row justify-between">
+          <div class="flex flex-row justify-between items-center">
             <img class="w-36"  src="documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
-            <div class="flex flex-row ">
+            <h1 class="text-4xl pr-96">Court-Circuit</h1>
+            <div class="flex flex-row">
             
             <button class="navbarLink" > <a href='./'><li>Accueil</li></a> </button>
             <button class="navbarLink" > <a href='?action=catalogue&page=1'><li>Catalogue</li></a> </button>
