@@ -15,17 +15,24 @@ class Inscription extends Action
     public function execute() : string {
 
         if ($this->http_method == 'GET') {
-            $res = "
+            $res = "<div class='bg-teal-800'>
         <form id='sign' method='post' action='?action=inscription'>
-                    <h1>Inscription</h1>
-                    <label><b>login*</b><input type='text' name='login' placeholder='login' required></label>
-                    <label><b>Mot de passe*</b> <input type='password' name='pass' placeholder='Mot de passe' required></label>
-                    <label><b>Entrer à nouveau votre mot de passe*</b> <input type='password' name='pass2' placeholder='Entrer à nouveau votre mot de passe' required></label>
-                    <label><b>mail</b><input type='email' name='mail' placeholder='mail' required></label>
-                    <label><b>nom</b><input type='text' name='nom' placeholder='nom'></label>
-                    <label><b>prenom</b><input type='text' name='prenom' placeholder='prenom'></label>
-                    <label><b>telephone</b><input type='number' name='telephone' placeholder='telephone'></label>
-                    <input type='submit' id='inscr' value='INSCRIPTION'>";
+            <h1 class='text-center font-bold text-4xl pt-4 text-amber-400'>Inscription</h1>
+            <div class='flex justify-center'>
+                <div class='flex flex-col max-w-80 m-0 p-8  text-center w-1/5'> 
+                    <span class='flex flex-row-reverse mt-4 mb-4'>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='login' placeholder=' login' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg'>Login* </label>
+                    </span>       
+                    <label class='formRegister'><b>Mot de passe* </b> <input type='password' name='pass' placeholder=' Mot de passe' required></label>
+                    <label class='formRegister'><b>Entrer à nouveau votre mot de passe* </b> <input type='password' name='pass2' placeholder=' Mot de passe' required></label>
+                    <label class='formRegister'><b>Mail </b><input type='email' name='mail' placeholder=' mail' required></label>
+                    <label class='formRegister'><b>Nom </b><input type='text' name='nom' placeholder=' nom'></label>
+                    <label class='formRegister'><b>Prenom </b><input type='text' name='prenom' placeholder=' prenom'></label>
+                    <label class='formRegister'><b>Telephone </b><input type='text' name='telephone' placeholder=' telephone'></label>
+                    <input class='formSubmit' type='submit' id='inscr' value='INSCRIPTION'>
+                </div>
+                </div>
+                </div>";
             //S'il y a des erreurs on ajoutera une ligne supplementaire selon la nature de l'erreur renvoye
             if (isset($_GET['error'])) {
                 switch ($_GET['error']) {
@@ -45,12 +52,7 @@ class Inscription extends Action
             $res .= "</form>";
         }else
             if ($this->http_method == 'POST') {
-                $bool = $this->inscrit();
-                if ($bool){
-                    $res = "<p>Vous êtes inscrit</p>";
-                }else{
-                    header('location: ?action=inscription');
-                }
+                $this->inscrit();
             }
         return $res;
     }
@@ -68,7 +70,7 @@ class Inscription extends Action
 
     }
 
-    public function inscrit():bool{
+    private function inscrit():bool{
         $res = false;
 
         $login = $_POST['login'];
@@ -78,7 +80,6 @@ class Inscription extends Action
         $prenom = null;
         $mail = null;
         $telephone = null;
-
 
         if (isset($_POST['nom'])) {
             $nom = $_POST['nom'];
@@ -93,13 +94,15 @@ class Inscription extends Action
             $telephone = $_POST['telephone'];
         }
 
+        if (!$this->checkPasswordStrength($mdp, 6)) {
+            header("location: ?action=inscription&error=2");
+        }
+
         if ($mdp != $mdpVerif) {
             header("location: ?action=inscription&error=3");
         }
 
-        $usr = User::where('email','like',$mail)->first();
-
-        if (count($usr)!=0){
+        if (count(User::where('email','like',$mail))){
             header("location: ?action=inscription&error=1");
         }
 
@@ -107,14 +110,13 @@ class Inscription extends Action
 
         $user = new User();
         $user->login = $login;
-        $user->passwd = $mdp;
-        $user->email = $mail;
+        $user->mdp = $mdp;
         $user->nom = $nom;
         $user->prenom = $prenom;
+        $user->email = $mail;
         $user->telephone = $telephone;
         $user->role = 0;
         $user->save();
-
 
         $res = true;
 

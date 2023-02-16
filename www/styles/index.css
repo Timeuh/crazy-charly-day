@@ -18,4 +18,8 @@
     .formSubmit {
         @apply border-2 bg-emerald-800 border-yellow-500 rounded-md p-2 text-yellow-100 hover:bg-transparent hover:text-emerald-800 transition
     }
+
+    .formRegister {
+        @apply border-2 bg-emerald-800 border-yellow-500 rounded-md p-2 text-yellow-100
+    }
 }
