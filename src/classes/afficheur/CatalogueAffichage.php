@@ -11,6 +11,7 @@ class CatalogueAffichage
         $nb_produits = 0;
         $res = "<div>";
         $produits = Produit::get();
+        $tab = [];
         foreach ($produits as $produit) {
             $nb_produits++;
 
@@ -27,7 +28,13 @@ class CatalogueAffichage
                 <br/>
             </div>
             EOT;
+            if ($nb_produits%$nb_produits_par_pages==0){
+                array_push($tab,$res);
+                $res = "";
+            }
         }
+
+        $res = $tab[$_GET['page']-1];
 
         $res .= "</div> <footer>";
         $nb_pages = ceil($nb_produits / $nb_produits_par_pages);
