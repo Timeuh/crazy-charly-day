@@ -13,7 +13,7 @@ class Inscription extends Action
         parent::__construct();
     }
     public function execute() : string {
-
+        $res = "";
         if ($this->http_method == 'GET') {
             $res = "<div class='bg-teal-800 h-screen '>
         <form id='sign' method='post' action='?action=inscription'>
@@ -114,13 +114,9 @@ class Inscription extends Action
             header("location: ?action=inscription&error=3");
         }
 
-        if (count(User::where('email','like',$mail))){
-            header("location: ?action=inscription&error=1");
-        }
-
         $usr = User::where('login','like',$login)->first();
 
-        if (count($usr)!=0){
+        if ($usr != null){
             header("location: ?action=inscription&error=1");
         }
 
@@ -128,7 +124,7 @@ class Inscription extends Action
 
         $user = new User();
         $user->login = $login;
-        $user->mdp = $mdp;
+        $user->passwd = $mdp;
         $user->nom = $nom;
         $user->prenom = $prenom;
         $user->email = $mail;
