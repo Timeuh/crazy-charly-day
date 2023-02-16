@@ -26,3 +26,4 @@ composer.lock
 composer.phar
 vendor
 src/conf/conf.ini
+package-lock.json
