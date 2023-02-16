@@ -47,7 +47,7 @@ class Dispatcher
     <link rel="icon" href="documents/court-circuit-logo-rond-jaune-vert.png">
 </head>
 <body>
-<div>
+<div class="">
       <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>
           <div class="flex flex-row justify-between items-center h-36">
