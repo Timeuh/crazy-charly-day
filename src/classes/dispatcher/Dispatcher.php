@@ -44,6 +44,7 @@ class Dispatcher
     <meta charset="UTF-8">
     <title>Crazy Charly Day</title>
     <link href="styles/output.css" rel="stylesheet">
+    <link rel="icon" href="documents/court-circuit-logo-rond-jaune-vert.png">
 </head>
 <body>
 <div>
