@@ -1,7 +1,11 @@
 {
-  "require":{
-    "illuminate/database": "8.*",
-    "php": ">=7.3"
+  "require": {
+    "illuminate/database": "^8.0.27",
+    "php": "^8.0.27"
+  },
+
+  "config": {
+    "platform-check": false
   },
 
   "autoload":{
