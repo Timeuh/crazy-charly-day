@@ -28,10 +28,10 @@ class AfficheurCommande
             header('Location: index.php?action=panier');
         } else {
             $res = <<<HTML
-                <form action="index.php?action=commande" method="post">
-                    <label for="date">Date de retrait</label>
-                    <input type="date" name="date" id="date">
-                    <input type="submit" value="Valider">
+                <form action="index.php?action=commande" method="post" class="bg-teal-800 h-screen text-center text-2xl text-yellow-500 flex flex-col items-center space-y-4">
+                    <label for="date" >Date de retrait</label>
+                    <input type="date" name="date" id="date" class="formInput">
+                    <input type="submit" value="Valider" class="formSubmit">
                 </form>
             HTML;
         }
