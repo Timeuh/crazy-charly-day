@@ -20,26 +20,26 @@ class Inscription extends Action
             <h1 class='text-center font-bold text-4xl pt-4 text-amber-400'>Inscription</h1>
             <div class='flex justify-center'>
                 <div class='flex flex-col max-w-80 m-0 p-8  text-center w-1/4'> 
-                    <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='login' placeholder=' login' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Login* </label>
+                    <span class='formSpan'>
+                        <input class='formInput' type='text' name='login' placeholder=' login' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Login* </label>
                     </span>       
-                    <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='password' name='pass' placeholder=' Mot de passe' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Mot de passe* </label>
+                    <span class='formSpan'>
+                        <input class='formInput' type='password' name='pass' placeholder=' Mot de passe' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Mot de passe* </label>
                     </span>
-                    <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='password' name='pass2' placeholder=' Mot de passe' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Répéter le mot de passe* </label>
+                    <span class='formSpan'>
+                        <input class='formInput' type='password' name='pass2' placeholder=' Mot de passe' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Répéter le mot de passe* </label>
                     </span>
-                    <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='email' name='mail' placeholder=' mail' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Mail* </label>
+                    <span class='formSpan'>
+                        <input class='formInput' type='email' name='mail' placeholder=' mail' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Mail* </label>
                     </span>
-                    <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='nom' placeholder=' nom' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Nom* </label>
+                    <span class='formSpan'>
+                        <input class='formInput' type='text' name='nom' placeholder=' nom' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Nom* </label>
                     </span>
-                    <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='prenom' placeholder=' prenom' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Prenom* </label>
+                    <span class='formSpan'>
+                        <input class='formInput' type='text' name='prenom' placeholder=' prenom' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Prenom* </label>
                     </span>
-                    <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='telephone' placeholder=' telephone' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Telephone* </label>
+                    <span class='formSpan'>
+                        <input class='formInput' type='text' name='telephone' placeholder=' telephone' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Telephone* </label>
                     </span>
                     <input class='userFormSubmit' type='submit' id='inscr' value='INSCRIPTION'>
                 </div>
