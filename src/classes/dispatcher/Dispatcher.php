@@ -25,19 +25,36 @@ class Dispatcher
     }
 
     private function renderPage(string $html) : void {
-        echo <<< EOT
-        <!DOCTYPE html>
-        <html lang="fr">
-        <head>
-            <meta charset="UTF-8">
-            <title>CrazyCharlyDay</title>
-            <link rel="stylesheet" href="src/Styles/CSS/tailwind.css"/>
-        </head>
-        <body>
-            $html
-        </body>
-        </html>
-        EOT;
+        echo <<<HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Crazy Charly Day</title>
+    <link href="styles/output.css" rel="stylesheet">
+</head>
+<body>
+<div>
+      <nav class="drop-shadow-2xl text-slate-400 bg-black">
+        <ul>
+          <div class="flex flex-row justify-between">
+            <img class="w-36"  src="../www/documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
+            <div class="flex flex-row ">
+              <button class="indexNavBtn"> <li>Accueil</li> </button>
+              <button class="indexNavBtn"> <li>page1</li> </button>
+              <button class="indexNavBtn"> <li>page2</li> </button>
+              <button class="indexNavBtn"> <li>page3</li> </button>
+              <button class="indexNavBtn"> <li>a propos de nous</li> </button>
+            </div>
+          </div>
+        </ul>
+      </nav>
+      <h1>Notre Site</h1>
+      {$html}
+    </div>
+</body>
+</html>
+HTML;
 
     }
 
