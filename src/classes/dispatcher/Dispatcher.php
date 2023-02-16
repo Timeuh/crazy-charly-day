@@ -46,7 +46,7 @@ class Dispatcher
             <div class="flex flex-row ">
             
             <button class="indexNavBtn" > <a href='./'><li>Accueil</li></a> </button>
-            <button class="indexNavBtn" > <a href='?action=catalogue'><li>Catalogue</li></a> </button>
+            <button class="indexNavBtn" > <a href='?action=catalogue&page=1'><li>Catalogue</li></a> </button>
             <button class="indexNavBtn" > <a href='?action=sign-in'><li>Page2</li></a> </button>
             <button class="indexNavBtn" > <a href='?action=sign-in'><li>Page3</li></a> </button>
             <button class="indexNavBtn" > <a href='?action=sign-in'><li>A Propos</li></a> </button>
