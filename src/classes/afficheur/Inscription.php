@@ -118,6 +118,12 @@ class Inscription extends Action
             header("location: ?action=inscription&error=1");
         }
 
+        $usr = User::where('login','like',$login)->first();
+
+        if (count($usr)!=0){
+            header("location: ?action=inscription&error=1");
+        }
+
         $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
 
         $user = new User();

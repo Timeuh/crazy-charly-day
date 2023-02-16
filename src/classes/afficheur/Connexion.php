@@ -3,6 +3,8 @@
 namespace custumbox\classes\afficheur;
 
 
+use custumbox\classes\data\User;
+
 class Connexion extends Action
 {
 
@@ -11,29 +13,48 @@ class Connexion extends Action
         parent::__construct();
     }
     public function execute() : string {
-        $res = "
-        <form id='sign' method='post' action='?action=add-user'>
+
+        if ($this->http_method == 'GET') {
+            $res = "
+        <form id='sign' method='post' action='?action=connexion'>
                     <h1>Inscription</h1>
-                    <label><b>login</b><input type='text' name='login' placeholder='login' required></label>
-                    <label><b>Mot de passe</b> <input type='password' name='pass' placeholder='Mot de passe' required></label>
-                    <input type='submit' id='log' value='Connexion'>";
-        //S'il y a des erreurs on ajoutera une ligne supplementaire selon la nature de l'erreur renvoye
-        if (isset($_GET['error'])) {
-            switch ($_GET['error']) {
-                case 1:
-                    $res .= "<p style='color:red'>Vous avez déjà un compte avec cette adresse mail</p><br>";
-                    break;
-
-                case 2:
-                    $res .= "<p style='color:red'>Votre mot de passe doit faire au moins 5 caractères avec un nombre, une minuscule et une majuscule</p><br>";
-                    break;
-
-                case 3:
-                    $res .= "<p style='color:red'>Votre mot de passe est different entre les 2 champs</p><br>";
-                    break;
+                    <label><b>login*</b><input type='text' name='login' placeholder='login' required></label>
+                    <label><b>Mot de passe*</b> <input type='password' name='pass' placeholder='Mot de passe' required></label>
+                    <input type='submit' id='inscr' value='INSCRIPTION'>";
+            //S'il y a des erreurs on ajoutera une ligne supplementaire selon la nature de l'erreur renvoye
+            if (isset($_GET['error'])) {
+                        $res .= "<p style='color:red'>Login ou mot de passe faux</p><br>";
             }
-        }
-        $res .= "</form>";
+            $res .= "</form>";
+        }else
+            if ($this->http_method == 'POST') {
+                $bool = $this->connexion();
+                if ($bool){
+                    header('location: ./');
+                }
+            }
         return $res;
     }
+
+    public function connexion():bool{
+        $res = false;
+
+        $login = $_POST['login'];
+        $mdp = $_POST['pass'];
+
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
+
+
+        $user = User::where('login','like',$login)->where('passwd','like',$mdp)->first();
+        var_dump($user);
+        if ($user!=null){
+            $res = true;
+        }else{
+            header("location: ?action=connexion&error=1");
+        }
+
+        return $res;
+    }
+
+
 }
