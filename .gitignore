@@ -25,3 +25,4 @@ dist-ssr
 composer.lock
 composer.phar
 vendor
+src/conf/conf.ini
