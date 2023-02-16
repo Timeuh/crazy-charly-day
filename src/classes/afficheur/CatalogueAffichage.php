@@ -17,7 +17,7 @@ class CatalogueAffichage
             $res .= <<< EOT
             <div>
                 <p> Produit numéro {$nb_produits}</p>
-                <img src="../../www/BD_img/{$produit->id}.jpg" alt="{$produit->nom}">
+                <img src="BD_img/{$produit->id}.jpg" alt="{$produit->nom}">
                 <h2>{$produit->nom}</h2>
                 <p>{$produit->description}</p>
                 <p>{$produit->prix}€</p>
@@ -29,11 +29,12 @@ class CatalogueAffichage
             EOT;
         }
 
-        $res .= "</div>";
+        $res .= "</div> <footer>";
         $nb_pages = ceil($nb_produits / $nb_produits_par_pages);
         for ($i = 1; $i <= $nb_pages; $i++) {
             $res .= '<a href="?action=catalogue&page=' . $i . '">' . $i . '</a> ';
         }
+        $res.="</footer>";
 
         return $res;
     }
