@@ -34,4 +34,8 @@
     .formInput {
         @apply w-52 inline-block border-0 rounded-r-lg focus:outline-none
     }
+
+    .error {
+        @apply text-red-500 text-center text-2xl pt-2
+    }
 }

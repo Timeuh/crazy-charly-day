@@ -15,7 +15,24 @@ class Inscription extends Action
     public function execute() : string {
         $res = "";
         if ($this->http_method == 'GET') {
-            $res = "<div class='bg-teal-800 h-screen '>
+            $res = "<div class='bg-teal-800 h-screen '>";
+//S'il y a des erreurs on ajoutera une ligne supplementaire selon la nature de l'erreur renvoye
+            if (isset($_GET['error'])) {
+                switch ($_GET['error']) {
+                    case 1:
+                        $res .= "<p class='error'>Vous avez déjà un compte avec cette adresse mail ou ce login est deja pris</p><br>";
+                        break;
+
+                    case 2:
+                        $res .= "<p class='error'>Votre mot de passe doit faire au moins 6 caractères avec un nombre, une minuscule et une majuscule</p><br>";
+                        break;
+
+                    case 3:
+                        $res .= "<p class='error'>Votre mot de passe est different entre les 2 champs</p><br>";
+                        break;
+                }
+            }
+            $res .= "
         <form id='sign' method='post' action='?action=inscription'>
             <h1 class='text-center font-bold text-4xl pt-4 text-amber-400'>Inscription</h1>
             <div class='flex justify-center'>
@@ -45,22 +62,7 @@ class Inscription extends Action
                 </div>
                 </div>
                 </div>";
-            //S'il y a des erreurs on ajoutera une ligne supplementaire selon la nature de l'erreur renvoye
-            if (isset($_GET['error'])) {
-                switch ($_GET['error']) {
-                    case 1:
-                        $res .= "<p style='color:red'>Vous avez déjà un compte avec cette adresse mail ou ce login est deja pris</p><br>";
-                        break;
 
-                    case 2:
-                        $res .= "<p style='color:red'>Votre mot de passe doit faire au moins 6 caractères avec un nombre, une minuscule et une majuscule</p><br>";
-                        break;
-
-                    case 3:
-                        $res .= "<p style='color:red'>Votre mot de passe est different entre les 2 champs</p><br>";
-                        break;
-                }
-            }
             $res .= "</form>";
         }else
             if ($this->http_method == 'POST') {
