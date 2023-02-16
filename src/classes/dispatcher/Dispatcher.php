@@ -35,7 +35,7 @@ class Dispatcher
                 $act = new AffcheurPanier();
                 break;
             case "connexion":
-                if (isset($_SESSION['user'])&&$_SESSION['user']!=null){
+                if (isset($_SESSION['user'])&&unserialize($_SESSION['user'])!=null){
                     $act = new Profil();
                 }else{
                     $act = new Connexion();
@@ -51,7 +51,8 @@ class Dispatcher
                 break;
         }
         $res = $act->execute();
-        if (isset($_SESSION['user'])&&$_SESSION['user']!=null) {
+        $_SESSION['TADARONNE'] = "TADARONNE";
+        if (isset($_SESSION['user'])&&unserialize($_SESSION['user'])!=null) {
             $this->renderPage($res);
         }else{
             $this->renderPageUser($res);

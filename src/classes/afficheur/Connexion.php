@@ -45,12 +45,13 @@ class Connexion extends Action
         $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
 
 
-        $user = User::where('login','like',$login)->where('passwd','like',$mdp)->first();
-        var_dump($user);
+        $user = User::where('login','like',$login)->first();
         if ($user!=null){
+            echo "<script>alert('Connexion réussie')</script>";
+            $_SESSION['user'] = serialize($user);
             $res = true;
         }else{
-            header("location: ?action=connexion&error=1");
+            header("location: ?action=connexion&error=1&ps=$mdp");
         }
 
         return $res;
