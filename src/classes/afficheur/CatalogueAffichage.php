@@ -33,14 +33,14 @@ class CatalogueAffichage
             if ($nb_produits%$nb_produits_par_pages==0){
                 array_push($tab,$res);
                 $res = "<H2 class='font-bold ml-2 text-2xl'>Nos produits</H2>
-                <div class='flex flex-row justify-between '>
+                <div class='flex flex-row justify-between'>
                 ";
             }
         }
 
         $res = $tab[$_GET['page']-1];
 
-        $res .= "</div> <footer class=''>";
+        $res .= "</div> <footer class='flex flex-row justify-center gap-2 '>";
         $nb_pages = ceil($nb_produits / $nb_produits_par_pages);
         for ($i = 1; $i <= $nb_pages; $i++) {
             $res .= '<a href="?action=catalogue&page=' . $i . '">' . $i . '</a> ';

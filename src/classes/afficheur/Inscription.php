@@ -17,7 +17,8 @@ class Inscription extends Action
         if ($this->http_method == 'GET') {
             $res = "
         <form id='sign' method='post' action='?action=inscription'>
-                    <h1>Inscription</h1>
+            <h1>Inscription</h1>
+                <div class='max-w-80 m-0 p-8 bg-'>                
                     <label><b>login*</b><input type='text' name='login' placeholder='login' required></label>
                     <label><b>Mot de passe*</b> <input type='password' name='pass' placeholder='Mot de passe' required></label>
                     <label><b>Entrer à nouveau votre mot de passe*</b> <input type='password' name='pass2' placeholder='Entrer à nouveau votre mot de passe' required></label>
@@ -25,7 +26,8 @@ class Inscription extends Action
                     <label><b>nom</b><input type='text' name='nom' placeholder='nom'></label>
                     <label><b>prenom</b><input type='text' name='prenom' placeholder='prenom'></label>
                     <label><b>telephone</b><input type='number' name='telephone' placeholder='telephone'></label>
-                    <input type='submit' id='inscr' value='INSCRIPTION'>";
+                    <input type='submit' id='inscr' value='INSCRIPTION'>
+                    </div>";
             //S'il y a des erreurs on ajoutera une ligne supplementaire selon la nature de l'erreur renvoye
             if (isset($_GET['error'])) {
                 switch ($_GET['error']) {
