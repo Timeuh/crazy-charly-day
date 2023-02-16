@@ -71,7 +71,7 @@ class Dispatcher
         <ul>
           <div class="flex flex-row justify-between items-center h-36">
             <img class="w-36"  src="documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
-            <h1 class="text-4xl pr-96">Court-Circuit</h1>
+            <h1 class="text-4xl pr-48">Court-Circuit</h1>
             <div class="flex flex-row h-full text-center">
                 <button class="navbarWrapper" > <a href='./' class="navbarLink">Accueil</a></button>
                 <button class="navbarWrapper" > <a href='?action=catalogue&page=1' class="navbarLink">Catalogue</a></button>
@@ -106,7 +106,7 @@ HTML;
         <ul>
           <div class="flex flex-row justify-between items-center h-36">
             <img class="w-36"  src="documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
-            <h1 class="text-4xl pr-96">Court-Circuit</h1>
+            <h1 class="text-4xl pr-52">Court-Circuit</h1>
             <div class="flex flex-row h-full text-center">
                 <button class="navbarWrapper" > <a href='./' class="navbarLink">Accueil</a></button>
                 <button class="navbarWrapper" > <a href='?action=catalogue&page=1' class="navbarLink">Catalogue</a></button>
