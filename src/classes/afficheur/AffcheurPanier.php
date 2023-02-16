@@ -15,7 +15,7 @@ class AffcheurPanier
             $produit = $item->produit;
             $prix = $produit->prix * $item->quantite;
             $totalprix += $prix;
-            $totalpoid += $produit->poid;
+            $totalpoid += $produit->poids;
             $res .= <<<HTML
                 <div>
                     <img src="BD_img/{$produit->id}.jpg" alt="{$produit->nom}">
