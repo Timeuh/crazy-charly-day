@@ -4,6 +4,7 @@ namespace custumbox\classes\afficheur;
 
 use custumbox\classes\data\Panier;
 use custumbox\classes\data\Produit;
+use custumbox\classes\data\User;
 
 class ProduitAffichage
 {
@@ -31,20 +32,15 @@ class ProduitAffichage
             EOT;
         $res .= "</div>";
 
-        if (isset($_POST['quantite'])) {
-            $verif = Panier::where([
-                ['idclient', '=', 1],
-                ['idproduit', '=', $_GET['id']]
-            ])->first();
-            if ($verif != null) {
-                $verif->quantite = $verif->quantite + $_POST['quantite'];
-                $verif->update();
+        if (isset($_POST['quantite']) && isset($_SESSION['user'])) {
+            $pannier = $_SESSION['user']->produits();
+            if ($pannier->where('idproduit', '=', $idProduit)->exists()) {
+                $produit = $pannier->where('idproduit', '=', $idProduit)->first();
+                $qtq = $produit->panier->quantite;
+                $qtq += $_POST['quantite'];
+                $pannier->updateExistingPivot($idProduit, ['quantite' => $qtq]);
             } else {
-                $ajt = new Panier();
-                $ajt->idClient = 1;
-                $ajt->idProduit = $_GET['id'];
-                $ajt->quantite = $_POST['quantite'];
-                $ajt->save();
+                $pannier->attach($idProduit, ['quantite' => $_POST['quantite']]);
             }
         }
 
