@@ -13,7 +13,7 @@ class ProduitAffichage
             ['id', '=', $_GET['id']]
         ])->first();
         $idProduit = $produit->id;
-        if ($_SESSION['user'] != null) {
+        if (unserialize($_SESSION['user']) != null) {
             $form = <<< form
                     <form action="index.php?action=produit&id=$idProduit" method="post" class="flex justify-around items-center">
                         <p class="font-bold">Quantité <input type="number" name="quantite" id="quantite" value="1" min="1" max="99" 
@@ -23,8 +23,8 @@ class ProduitAffichage
             form;
         }else{
             $form = <<< form
-                    <form action="index.php?action=connexion" method="post" class="flex justify-around items-center">
-                        <p class="font-bold">Quantité <input type="number" name="quantite" id="quantite" value="1" min="1" max="99" 
+                    <form action="index.php?action=connexion" class="flex justify-around items-center">
+                        <p class="font-bold">Quantité <input type="number" id="quantite" value="1" min="1" max="99" 
                         class="border-2 rounded-md border-yellow-500 text-center"></p>
                         <button class="formSubmit" type="submit">Ajouter au panier</button>
                     </form>
