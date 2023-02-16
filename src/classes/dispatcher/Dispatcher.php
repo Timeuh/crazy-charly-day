@@ -65,8 +65,8 @@ class Dispatcher
     <link href="styles/output.css" rel="stylesheet">
     <link rel="icon" href="documents/court-circuit-logo-rond-jaune-vert.png">
 </head>
-<body>
-<div>
+<body class="h-full w-full">
+<div >
       <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>
           <div class="flex flex-row justify-between items-center h-36">
@@ -100,8 +100,8 @@ HTML;
     <link href="styles/output.css" rel="stylesheet">
     <link rel="icon" href="documents/court-circuit-logo-rond-jaune-vert.png">
 </head>
-<body>
-<div class="">
+<body class="h-full w-full">
+<div>
       <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>
           <div class="flex flex-row justify-between items-center h-36">
