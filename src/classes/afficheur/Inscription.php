@@ -15,20 +15,32 @@ class Inscription extends Action
     public function execute() : string {
 
         if ($this->http_method == 'GET') {
-            $res = "<div class='bg-teal-800'>
+            $res = "<div class='bg-teal-800 h-screen '>
         <form id='sign' method='post' action='?action=inscription'>
             <h1 class='text-center font-bold text-4xl pt-4 text-amber-400'>Inscription</h1>
             <div class='flex justify-center'>
-                <div class='flex flex-col max-w-80 m-0 p-8  text-center w-1/5'> 
+                <div class='flex flex-col max-w-80 m-0 p-8  text-center w-1/4'> 
                     <span class='flex flex-row-reverse mt-4 mb-4'>
-                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='login' placeholder=' login' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg'>Login* </label>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='login' placeholder=' login' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Login* </label>
                     </span>       
-                    <label class='formRegister'><b>Mot de passe* </b> <input type='password' name='pass' placeholder=' Mot de passe' required></label>
-                    <label class='formRegister'><b>Entrer à nouveau votre mot de passe* </b> <input type='password' name='pass2' placeholder=' Mot de passe' required></label>
-                    <label class='formRegister'><b>Mail </b><input type='email' name='mail' placeholder=' mail' required></label>
-                    <label class='formRegister'><b>Nom </b><input type='text' name='nom' placeholder=' nom'></label>
-                    <label class='formRegister'><b>Prenom </b><input type='text' name='prenom' placeholder=' prenom'></label>
-                    <label class='formRegister'><b>Telephone </b><input type='text' name='telephone' placeholder=' telephone'></label>
+                    <span class='flex flex-row-reverse mt-4 mb-4'>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='password' name='pass' placeholder=' Mot de passe' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Mot de passe* </label>
+                    </span>
+                    <span class='flex flex-row-reverse mt-4 mb-4'>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='password' name='pass2' placeholder=' Mot de passe' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Répéter le mot de passe* </label>
+                    </span>
+                    <span class='flex flex-row-reverse mt-4 mb-4'>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='email' name='mail' placeholder=' mail' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Mail* </label>
+                    </span>
+                    <span class='flex flex-row-reverse mt-4 mb-4'>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='nom' placeholder=' nom' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Nom* </label>
+                    </span>
+                    <span class='flex flex-row-reverse mt-4 mb-4'>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='prenom' placeholder=' prenom' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Prenom* </label>
+                    </span>
+                    <span class='flex flex-row-reverse mt-4 mb-4'>
+                        <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='telephone' placeholder=' telephone' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Telephone* </label>
+                    </span>
                     <input class='formSubmit' type='submit' id='inscr' value='INSCRIPTION'>
                 </div>
                 </div>
