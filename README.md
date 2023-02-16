@@ -38,6 +38,6 @@ Puis une fois le projet ouvert dans votre IDE préféré, installez les dépenda
 
 Enfin, il ne reste plus qu'à lancer la surveillance tailwind css :
 
-    npx tailwindcss -i ./www/styles/index.css -o ./www/styles/output.css --watch
+    npx tailwindcss -i ./www/styles/index.css -o ./www/styles/output.css --watch --minify
 
 Il vous faut un moyen de regarder votre code en local, avec Xampp ou WSL par exemple

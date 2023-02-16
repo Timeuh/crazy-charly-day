@@ -3,6 +3,7 @@
 namespace custumbox\classes\dispatcher;
 
 use custumbox\classes\afficheur\AccueilAffichage;
+use custumbox\classes\afficheur\AffcheurPanier;
 use custumbox\classes\afficheur\CatalogueAffichage;
 
 class Dispatcher
@@ -19,6 +20,9 @@ class Dispatcher
         switch ($this->action) {
             case "catalogue":
                 $act = new CatalogueAffichage();
+                break;
+            case "panier":
+                $act = new AffcheurPanier();
                 break;
             default:
                 $act = new AccueilAffichage();
@@ -48,7 +52,7 @@ class Dispatcher
             <button class="indexNavBtn" > <a href='./'><li>Accueil</li></a> </button>
             <button class="indexNavBtn" > <a href='?action=catalogue&page=1'><li>Catalogue</li></a> </button>
             <button class="indexNavBtn" > <a href='?action=sign-in'><li>Page2</li></a> </button>
-            <button class="indexNavBtn" > <a href='?action=sign-in'><li>Page3</li></a> </button>
+            <button class="indexNavBtn" > <a href='?action=panier'><li>Panier</li></a> </button>
             <button class="indexNavBtn" > <a href='?action=sign-in'><li>A Propos</li></a> </button>
             </div>
           </div>
