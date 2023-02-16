@@ -38,7 +38,7 @@ class Dispatcher
       <nav class="drop-shadow-2xl text-slate-400 bg-black">
         <ul>
           <div class="flex flex-row justify-between">
-            <img class="w-36"  src="../www/documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
+            <img class="w-36"  src="documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
             <div class="flex flex-row ">
               <button class="indexNavBtn"> <li>Accueil</li> </button>
               <button class="indexNavBtn"> <li>page1</li> </button>
