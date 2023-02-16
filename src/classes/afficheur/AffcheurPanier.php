@@ -7,8 +7,11 @@ use custumbox\classes\data\Panier;
 class AffcheurPanier
 {
     public function execute() : string {
-        if(!isset($_SESSION['user']))
-            return "<p>Vous devez être connecté pour accéder à votre panier</p>";
+        if (!isset($_SESSION['user']))
+            return "<div class='bg-teal-800 h-[49.2rem]'>
+                        <h1 class='text-center text-yellow-500 py-8 font-bold'>Vous devez être connecté pour accéder à votre panier</h1>
+                    </div>
+                    ";
 
         // Session exist
         $res = "";
