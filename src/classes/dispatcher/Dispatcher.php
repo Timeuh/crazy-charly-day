@@ -49,16 +49,15 @@ class Dispatcher
 <div>
       <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>
-          <div class="flex flex-row justify-between items-center">
+          <div class="flex flex-row justify-between items-center h-36">
             <img class="w-36"  src="documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
             <h1 class="text-4xl pr-96">Court-Circuit</h1>
-            <div class="flex flex-row">
-            
-            <button class="navbarLink" > <a href='./'><li>Accueil</li></a> </button>
-            <button class="navbarLink" > <a href='?action=catalogue&page=1'><li>Catalogue</li></a> </button>
-            <button class="navbarLink" > <a href='?action=sign-in'><li>Page2</li></a> </button>
-            <button class="navbarLink" > <a href='?action=panier'><li>Panier</li></a> </button>
-            <button class="navbarLink" > <a href='?action=sign-in'><li>A Propos</li></a> </button>
+            <div class="flex flex-row h-full text-center">
+                <button class="navbarWrapper" > <a href='./' class="navbarLink">Accueil</a></button>
+                <button class="navbarWrapper" > <a href='?action=catalogue&page=1' class="navbarLink">Catalogue</a></button>
+                <button class="navbarWrapper" > <a href='?action=sign-in' class="navbarLink">Page 2</a></button>
+                <button class="navbarWrapper" > <a href='?action=panier' class="navbarLink">Panier</a></button>
+                <button class="navbarWrapper" > <a href='?action=sign-in' class="navbarLink">A propos</a></button>
             </div>
           </div>
         </ul>
