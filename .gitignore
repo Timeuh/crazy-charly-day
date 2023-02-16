@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 composer.lock
 composer.phar
+vendor
