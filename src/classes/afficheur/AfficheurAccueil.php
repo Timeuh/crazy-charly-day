@@ -8,16 +8,6 @@ class AfficheurAccueil
 {
     public function execute() : string {
         $res = "";
-        $res = <<< EOT
-        <nav>
-            <img src="../../../www/documents/court-circuit-logo-rond-jaune-vert.pn" alt="logo">
-            <a href="index.php?action=accueil">Accueil</a>
-            <a href="index.php?action=produits">Produits</a>
-            <a href="index.php?action=categories">Catégories</a>
-            <a href="index.php?action=panier">Panier</a>
-            <a href="index.php?action=connexion">Connexion</a>
-        </nav>
-        EOT;
 
         $res .= "<div>";
         $produits = Produit::get();
