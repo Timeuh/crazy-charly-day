@@ -41,7 +41,7 @@ class Inscription extends Action
                     <span class='flex flex-row-reverse mt-4 mb-4'>
                         <input class='w-52 inline-block border-0 rounded-r-lg focus:outline-none ' type='text' name='telephone' placeholder=' telephone' required><label class='bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full'>Telephone* </label>
                     </span>
-                    <input class='formSubmit' type='submit' id='inscr' value='INSCRIPTION'>
+                    <input class='userFormSubmit' type='submit' id='inscr' value='INSCRIPTION'>
                 </div>
                 </div>
                 </div>";
