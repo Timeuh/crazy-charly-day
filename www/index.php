@@ -13,7 +13,7 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 session_start();
-$_SESSION['user'] = User::where('id', '=', 1)->first();
+$_SESSION['user'] = null;
 $action = (isset($_GET['action'])) ? $_GET['action'] : "";
 $dispatch = new Dispatcher($action);
 $dispatch->run();

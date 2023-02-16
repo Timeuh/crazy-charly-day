@@ -3,8 +3,13 @@
 namespace custumbox\classes\afficheur;
 
 
-class Connexion
+class Connexion extends Action
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
     public function execute() : string {
         $res = "
         <form id='sign' method='post' action='?action=add-user'>
