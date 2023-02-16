@@ -28,34 +28,21 @@ class Connexion extends Action
             $res .= "</form>";
         }else
             if ($this->http_method == 'POST') {
-                $bool = $this->connexion();
-                if ($bool){
-                    header('location: ./');
+                $login = $_POST['login'];
+                $mdp = $_POST['pass'];
+
+                $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
+
+
+                $user = User::where('login','like',$login)->first();
+                if ($user != null){
+                    echo "<script>alert('Connexion réussie')</script>";
+                    $_SESSION['user'] = serialize($user);
+                    $res = true;
+                }else{
+                    header("location: ?action=connexion&error=1&ps=$mdp");
                 }
             }
         return $res;
     }
-
-    public function connexion():bool{
-        $res = false;
-
-        $login = $_POST['login'];
-        $mdp = $_POST['pass'];
-
-        $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
-
-
-        $user = User::where('login','like',$login)->first();
-        if ($user!=null){
-            echo "<script>alert('Connexion réussie')</script>";
-            $_SESSION['user'] = serialize($user);
-            $res = true;
-        }else{
-            header("location: ?action=connexion&error=1&ps=$mdp");
-        }
-
-        return $res;
-    }
-
-
 }
