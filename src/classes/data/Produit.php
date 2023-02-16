@@ -23,4 +23,14 @@ class Produit extends Model {
         )->withPivot('quantite')
             ->as('panier');
     }
+
+    public function factures() : BelongsToMany {
+        return $this->belongsToMany(
+            Commande::class,
+            'contient',
+            'idproduit',
+            'numComm'
+        )->withPivot('quantite')
+            ->as('contient');
+    }
 }

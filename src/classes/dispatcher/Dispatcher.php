@@ -4,6 +4,7 @@ namespace custumbox\classes\dispatcher;
 
 use custumbox\classes\afficheur\AccueilAffichage;
 use custumbox\classes\afficheur\AffcheurPanier;
+use custumbox\classes\afficheur\AfficheurCommande;
 use custumbox\classes\afficheur\CatalogueAffichage;
 use custumbox\classes\afficheur\Connexion;
 use custumbox\classes\afficheur\Deconnexion;
@@ -56,6 +57,9 @@ class Dispatcher
                 break;
 
 
+            case 'commande':
+                $act = new AfficheurCommande();
+                break;
             default:
                 $act = new AccueilAffichage();
                 break;

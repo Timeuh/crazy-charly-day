@@ -5,28 +5,28 @@ namespace custumbox\classes\data;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class User extends Model
+class Commande extends Model
 {
-    protected $table = 'user_cc';
-    protected $primaryKey = 'id';
+    protected $table = 'commande';
+    protected $primaryKey = 'numComm';
     public $timestamps = false;
 
-    public function produits() : BelongsToMany {
+    public function contient() : BelongsToMany {
         return $this->belongsToMany(
             'custumbox\classes\data\Produit',
-            'panier',
-            'idclient',
+            'contient',
+            'numComm',
             'idproduit'
         )->withPivot('quantite')
-            ->as('panier');
+            ->as('contient');
     }
 
-    public function commandes() : BelongsToMany {
+    public function factures() : BelongsToMany {
         return $this->belongsToMany(
-            'custumbox\classes\data\Commande',
+            'custumbox\classes\data\User',
             'facturation',
-            'idclient',
-            'numComm'
+            'numComm',
+            'idclient'
         )->withPivot('dateRetrait')
             ->as('facturation');
     }

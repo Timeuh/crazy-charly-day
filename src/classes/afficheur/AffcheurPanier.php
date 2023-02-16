@@ -35,6 +35,7 @@ class AffcheurPanier
             <div>
                 <p>Total : {$totalprix}€</p>
                 <p>Poids total : {$totalpoid}g</p>
+                <a href="index.php?action=commande">Valider la commande</a> 
             </div>
         HTML;
         return $res;
