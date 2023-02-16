@@ -38,4 +38,8 @@
     .error {
         @apply text-red-500 text-center text-2xl pt-2
     }
+
+    .formLabel {
+        @apply bg-emerald-700 text-yellow-50  p-4 rounded-l-lg w-full
+    }
 }
