@@ -53,6 +53,7 @@ class CatalogueAffichage extends Action
                 }
             }
 
+
             $res = $tab[$_GET['page'] - 1];
 
             $res .= "</div> <footer class='flex flex-row justify-center space-x-2 my-8 text-2xl'>";

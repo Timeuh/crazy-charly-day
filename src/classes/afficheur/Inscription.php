@@ -49,7 +49,7 @@ class Inscription extends Action
             if (isset($_GET['error'])) {
                 switch ($_GET['error']) {
                     case 1:
-                        $res .= "<p style='color:red'>Vous avez déjà un compte avec cette adresse mail</p><br>";
+                        $res .= "<p style='color:red'>Vous avez déjà un compte avec cette adresse mail ou ce login est deja pris</p><br>";
                         break;
 
                     case 2:
@@ -118,21 +118,29 @@ class Inscription extends Action
 
         if ($usr != null){
             header("location: ?action=inscription&error=1");
+        }else{
+
+        $usr = User::where('email','like',$mail)->first();
+
+        if ($usr != null){
+            header("location: ?action=inscription&error=1");
+        }else {
+
+            $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
+
+            $user = new User();
+            $user->login = $login;
+            $user->passwd = $mdp;
+            $user->nom = $nom;
+            $user->prenom = $prenom;
+            $user->email = $mail;
+            $user->telephone = $telephone;
+            $user->role = 0;
+            $user->save();
+
+            $res = true;
         }
-
-        $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
-
-        $user = new User();
-        $user->login = $login;
-        $user->passwd = $mdp;
-        $user->nom = $nom;
-        $user->prenom = $prenom;
-        $user->email = $mail;
-        $user->telephone = $telephone;
-        $user->role = 0;
-        $user->save();
-
-        $res = true;
+        }
 
 
         return $res;
