@@ -9,7 +9,7 @@ class CatalogueAffichage
     public function execute() : string {
         $nb_produits_par_pages = 5;
         $nb_produits = 0;
-        $res = "<H2 class='font-bold ml-2 text-2xl'>Nos produits</H2>
+        $res = "<H2 class='font-bold ml-2 text-2xl text-center m-4 text-emerald-900'>Nos produits</H2>
                 <div class='flex flex-row justify-between '>
                 ";
         $produits = Produit::get();
@@ -26,13 +26,13 @@ class CatalogueAffichage
                 <div class="pb-16"><p >{$produit->description}</p></div>
                 <div class="flex flex-row-reverse  fixed bottom-0 gap-8">
                     <p >{$produit->prix}€</p>
-                    <a class="mb-2 hover:border-b-2 border-emerald-800" href="index.php?action=produit&id={$produit->id}">Voir le produit</a>
+                    <a class="mb-2 hover:border-b-2 border-emerald-800 font-bold" href="index.php?action=produit&id={$produit->id}">Voir le produit</a>
                 </div>
             </div>
             EOT;
             if ($nb_produits%$nb_produits_par_pages==0){
                 array_push($tab,$res);
-                $res = "<H2 class='font-bold ml-2 text-2xl'>Nos produits</H2>
+                $res = "<H2 class='font-bold ml-2 text-2xl text-center m-4 text-emerald-900'>Nos produits</H2>
                 <div class='flex flex-row justify-between'>
                 ";
             }
@@ -40,7 +40,7 @@ class CatalogueAffichage
 
         $res = $tab[$_GET['page']-1];
 
-        $res .= "</div> <footer class='flex flex-row justify-center gap-2 '>";
+        $res .= "</div> <footer class='flex flex-row justify-center space-x-2 my-8 text-2xl'>";
         $nb_pages = ceil($nb_produits / $nb_produits_par_pages);
         for ($i = 1; $i <= $nb_pages; $i++) {
             $res .= '<a href="?action=catalogue&page=' . $i . '">' . $i . '</a> ';
