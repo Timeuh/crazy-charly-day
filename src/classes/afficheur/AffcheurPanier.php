@@ -7,15 +7,18 @@ use custumbox\classes\data\Panier;
 class AffcheurPanier
 {
     public function execute() : string {
+        if(!isset($_SESSION['user']))
+            return "<p>Vous devez être connecté pour accéder à votre panier</p>";
+
+        // Session exist
         $res = "";
-        $panier = Panier::all();
+        $panier = $_SESSION['user']->produits;
         $totalprix = 0;
         $totalpoid = 0;
-        foreach ($panier as $item) {
-            $produit = $item->produit;
-            $prix = $produit->prix * $item->quantite;
+        foreach ($panier as $produit) {
+            $prix = $produit->prix * $produit->panier->quantite;
             $totalprix += $prix;
-            $totalpoid += $produit->poids * $item->quantite;
+            $totalpoid += $produit->poids * $produit->panier->quantite;
             $res .= <<<HTML
                 <div>
                     <img src="BD_img/{$produit->id}.jpg" alt="{$produit->nom}">
