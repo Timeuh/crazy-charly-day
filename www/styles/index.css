@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .test { @apply bg-red-500  rounded-none }
+    .indexNavBtn { @apply mx-8 px-8 rounded-2xl mb-12 mt-12  bg-emerald-900 text-slate-200 hover:bg-emerald-800 hover:text-slate-100  }
+
+}
