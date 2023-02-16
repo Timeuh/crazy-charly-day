@@ -5,6 +5,7 @@ namespace custumbox\classes\dispatcher;
 use custumbox\classes\afficheur\AccueilAffichage;
 use custumbox\classes\afficheur\AffcheurPanier;
 use custumbox\classes\afficheur\CatalogueAffichage;
+use custumbox\classes\afficheur\ProduitAffichage;
 
 class Dispatcher
 {
@@ -20,6 +21,9 @@ class Dispatcher
         switch ($this->action) {
             case "catalogue":
                 $act = new CatalogueAffichage();
+                break;
+            case "produit":
+                $act = new ProduitAffichage();
                 break;
             case "panier":
                 $act = new AffcheurPanier();
