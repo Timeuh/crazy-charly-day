@@ -25,7 +25,6 @@ class CatalogueAffichage extends Action
 
             if (isset($_GET['search'])) {
                 $produits = $this->search($_GET['search']);
-                var_dump($produits);
             }else {
                 $produits = Produit::get();
             }
