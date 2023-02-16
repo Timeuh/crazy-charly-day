@@ -41,3 +41,8 @@ Enfin, il ne reste plus qu'à lancer la surveillance tailwind css :
     npx tailwindcss -i ./www/styles/index.css -o ./www/styles/output.css --watch --minify
 
 Il vous faut un moyen de regarder votre code en local, avec Xampp ou WSL par exemple
+
+Enfin pour une visualisation en direct, si vous possèdez un compte de l'Université de Lorraine
+vous pouvez aller voir le site sur webetu à l'url :
+
+https://webetu.iutnc.univ-lorraine.fr/www/joly182u/CrazyCD/www/ 
