@@ -4,7 +4,7 @@ namespace custumbox\classes\afficheur;
 
 use custumbox\classes\data\Panier;
 
-class AffcheurPanier
+class AfficheurPanier
 {
     public function execute() : string {
         if (!isset($_SESSION['user']))
@@ -15,7 +15,7 @@ class AffcheurPanier
 
         // Session exist
         $res = "";
-        $panier = $_SESSION['user']->produits;
+        $panier = unserialize($_SESSION['user'])->produits;
         $totalprix = 0;
         $totalpoid = 0;
         foreach ($panier as $produit) {

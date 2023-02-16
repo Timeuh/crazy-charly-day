@@ -3,7 +3,7 @@
 namespace custumbox\classes\dispatcher;
 
 use custumbox\classes\afficheur\AccueilAffichage;
-use custumbox\classes\afficheur\AffcheurPanier;
+use custumbox\classes\afficheur\AfficheurPanier;
 use custumbox\classes\afficheur\AfficheurCommande;
 use custumbox\classes\afficheur\AProposAffichage;
 use custumbox\classes\afficheur\CatalogueAffichage;
@@ -35,7 +35,7 @@ class Dispatcher
                 $act = new ProduitAffichage();
                 break;
             case "panier":
-                $act = new AffcheurPanier();
+                $act = new AfficheurPanier();
                 break;
             case "connexion":
                 if (isset($_SESSION['user'])&&unserialize($_SESSION['user'])!=null){
@@ -88,9 +88,9 @@ class Dispatcher
     <title>Court-Circuit</title>
     <link href="styles/output.css" rel="stylesheet">
     <link rel="icon" href="documents/court-circuit-logo-rond-jaune-vert.png">
-    <script src="src/js"></script>
+
 </head>
-<body class="h-full w-full" onload="initMap()">
+<body class="h-full w-full">
 <div >
       <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>

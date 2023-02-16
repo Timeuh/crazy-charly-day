@@ -52,11 +52,10 @@ class ProduitAffichage
                     {$form}
                 </div>
             </div>
-                    <div id="map">map</div>
             EOT;
 
         if (isset($_POST['quantite']) && isset($_SESSION['user'])) {
-            $pannier = $_SESSION['user']->produits();
+            $pannier = unserialize($_SESSION['user'])->produits();
             if ($pannier->where('idproduit', '=', $idProduit)->exists()) {
                 $produit = $pannier->where('idproduit', '=', $idProduit)->first();
                 $qtq = $produit->panier->quantite;
