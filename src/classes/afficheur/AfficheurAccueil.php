@@ -22,6 +22,7 @@ class AfficheurAccueil
             </div>
             EOT;
         }
+        $res .= "</div>";
 
         return $res;
     }
