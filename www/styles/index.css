@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-    .test { @apply bg-red-500  rounded-none }
-    .indexNavBtn { @apply mx-8 px-8 rounded-2xl mb-12 mt-12  bg-emerald-900 text-slate-200 hover:bg-emerald-800 hover:text-slate-100  }
+    .test {
+        @apply bg-red-500  rounded-none
+    }
+
+    .navbarLink {
+        @apply border-b-8 px-12 mx-4 border-emerald-900 border-opacity-0 hover:border-opacity-100 hover:text-yellow-500
+    }
 }

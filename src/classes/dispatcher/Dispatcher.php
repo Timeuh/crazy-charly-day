@@ -47,17 +47,17 @@ class Dispatcher
 </head>
 <body>
 <div>
-      <nav class="drop-shadow-2xl text-slate-400 bg-black">
+      <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>
           <div class="flex flex-row justify-between">
             <img class="w-36"  src="documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
             <div class="flex flex-row ">
             
-            <button class="indexNavBtn" > <a href='./'><li>Accueil</li></a> </button>
-            <button class="indexNavBtn" > <a href='?action=catalogue&page=1'><li>Catalogue</li></a> </button>
-            <button class="indexNavBtn" > <a href='?action=sign-in'><li>Page2</li></a> </button>
-            <button class="indexNavBtn" > <a href='?action=panier'><li>Panier</li></a> </button>
-            <button class="indexNavBtn" > <a href='?action=sign-in'><li>A Propos</li></a> </button>
+            <button class="navbarLink" > <a href='./'><li>Accueil</li></a> </button>
+            <button class="navbarLink" > <a href='?action=catalogue&page=1'><li>Catalogue</li></a> </button>
+            <button class="navbarLink" > <a href='?action=sign-in'><li>Page2</li></a> </button>
+            <button class="navbarLink" > <a href='?action=panier'><li>Panier</li></a> </button>
+            <button class="navbarLink" > <a href='?action=sign-in'><li>A Propos</li></a> </button>
             </div>
           </div>
         </ul>
