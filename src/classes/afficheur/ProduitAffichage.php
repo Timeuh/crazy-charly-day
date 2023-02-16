@@ -4,7 +4,6 @@ namespace custumbox\classes\afficheur;
 
 use custumbox\classes\data\Panier;
 use custumbox\classes\data\Produit;
-use custumbox\classes\data\User;
 
 class ProduitAffichage
 {
@@ -23,7 +22,10 @@ class ProduitAffichage
                 <div class="w-2/5 border-2 border-emerald-900 rounded-md space-y-12 p-4 m-4">
                     <div>
                         <h2 class="text-4xl font-bold text-yellow-500">{$produit->nom}</h2>
+                    <div class="flex flex-row justify-between">
                         <h3 class="text-xl italic font-bold text-emerald-900">{$categorie->nom}</h3>
+                        <a href="index.php?action=catalogue&page=1" class="formSubmit">Catalogue</a>
+                    </div>
                         <p class="text-2xl py-4 text-yellow-500">{$produit->prix}€</p>
                     </div>
                     <div class="space-y-2 italic">
