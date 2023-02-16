@@ -5,6 +5,7 @@ namespace custumbox\classes\dispatcher;
 use custumbox\classes\afficheur\AccueilAffichage;
 use custumbox\classes\afficheur\AffcheurPanier;
 use custumbox\classes\afficheur\AfficheurCommande;
+use custumbox\classes\afficheur\AProposAffichage;
 use custumbox\classes\afficheur\CatalogueAffichage;
 use custumbox\classes\afficheur\Connexion;
 use custumbox\classes\afficheur\Deconnexion;
@@ -60,6 +61,11 @@ class Dispatcher
             case 'commande':
                 $act = new AfficheurCommande();
                 break;
+
+            case 'a-propos':
+                $act = new AProposAffichage();
+                break;
+
             default:
                 $act = new AccueilAffichage();
                 break;
@@ -132,7 +138,7 @@ HTML;
                 <button class="navbarWrapper" > <a href='?action=panier' class="navbarLink">Panier</a></button>
                 <button class="navbarWrapper" > <a href='?action=profil' class="navbarLink">Profil</a></button>
                 <button class="navbarWrapper" > <a href='?action=deconnexion' class="navbarLink">Deconnexion</a></button>
-                <button class="navbarWrapper" > <a href='?action=sign-in' class="navbarLink">A propos</a></button>
+                <button class="navbarWrapper" > <a href='?action=a-propos' class="navbarLink">A propos</a></button>
             </div>
           </div>
         </ul>
