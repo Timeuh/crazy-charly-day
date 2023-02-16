@@ -4,12 +4,10 @@ namespace custumbox\classes\afficheur;
 
 use custumbox\classes\data\Produit;
 
-class AfficheurAccueil
+class CatalogueAffichage
 {
     public function execute() : string {
-        $res = "";
-
-        $res .= "<div>";
+        $res = "<div>";
         $produits = Produit::get();
         foreach ($produits as $produit) {
             $res .= <<< EOT

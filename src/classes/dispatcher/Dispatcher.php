@@ -2,7 +2,8 @@
 
 namespace custumbox\classes\dispatcher;
 
-use custumbox\classes\afficheur\AfficheurAccueil;
+use custumbox\classes\afficheur\AccueilAffichage;
+use custumbox\classes\afficheur\CatalogueAffichage;
 
 class Dispatcher
 {
@@ -16,8 +17,11 @@ class Dispatcher
     public function run() : void {
         $res = "";
         switch ($this->action) {
+            case "catalogue":
+                $act = new CatalogueAffichage();
+                break;
             default:
-                $act = new AfficheurAccueil();
+                $act = new AccueilAffichage();
                 break;
         }
         $res = $act->execute();
@@ -40,16 +44,16 @@ class Dispatcher
           <div class="flex flex-row justify-between">
             <img class="w-36"  src="documents/court-circuit-logo-rond-jaune-vert.png" alt="logo"  />
             <div class="flex flex-row ">
-              <button class="indexNavBtn"> <li>Accueil</li> </button>
-              <button class="indexNavBtn"> <li>page1</li> </button>
-              <button class="indexNavBtn"> <li>page2</li> </button>
-              <button class="indexNavBtn"> <li>page3</li> </button>
-              <button class="indexNavBtn"> <li>a propos de nous</li> </button>
+            
+            <button class="indexNavBtn" > <a href='./'><li>Accueil</li></a> </button>
+            <button class="indexNavBtn" > <a href='?action=catalogue'><li>Catalogue</li></a> </button>
+            <button class="indexNavBtn" > <a href='?action=sign-in'><li>Page2</li></a> </button>
+            <button class="indexNavBtn" > <a href='?action=sign-in'><li>Page3</li></a> </button>
+            <button class="indexNavBtn" > <a href='?action=sign-in'><li>A Propos</li></a> </button>
             </div>
           </div>
         </ul>
       </nav>
-      <h1>Notre Site</h1>
       {$html}
     </div>
 </body>
