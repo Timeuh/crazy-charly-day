@@ -1,6 +1,6 @@
 <?php
 
-namespace custumbox\backend;
+namespace custumbox\classes\data;
 
 class Produit  extends \Illuminate\Database\Eloquent\Model {
     protected $table = 'produit';

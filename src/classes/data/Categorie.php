@@ -1,5 +1,5 @@
 <?php
-namespace custumbox\backend;
+namespace custumbox\classes\data;
 
 use Illuminate\Database\Eloquent\Model;
 
