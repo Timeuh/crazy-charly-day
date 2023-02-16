@@ -12,11 +12,14 @@ use custumbox\classes\afficheur\Profil;
 
 class Dispatcher
 {
-    private string $action;
+    protected ?string $action = null;
 
-    public function __construct(string $action)
+    /**
+     * @param string|null $action
+     */
+    public function __construct()
     {
-        $this->action = $action;
+        $this->action = $_GET['action'] ?? null;
     }
 
     public function run() : void {

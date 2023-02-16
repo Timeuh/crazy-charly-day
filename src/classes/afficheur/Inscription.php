@@ -45,7 +45,12 @@ class Inscription extends Action
             $res .= "</form>";
         }else
             if ($this->http_method == 'POST') {
-                $this->inscrit();
+                $bool = $this->inscrit();
+                if ($bool){
+                    $res = "<p>Vous êtes inscrit</p>";
+                }else{
+                    header('location: ?action=inscription');
+                }
             }
         return $res;
     }
@@ -63,7 +68,7 @@ class Inscription extends Action
 
     }
 
-    private function inscrit():bool{
+    public function inscrit():bool{
         $res = false;
 
         $login = $_POST['login'];
@@ -73,6 +78,7 @@ class Inscription extends Action
         $prenom = null;
         $mail = null;
         $telephone = null;
+
 
         if (isset($_POST['nom'])) {
             $nom = $_POST['nom'];
@@ -87,29 +93,19 @@ class Inscription extends Action
             $telephone = $_POST['telephone'];
         }
 
-        if (!$this->checkPasswordStrength($mdp, 6)) {
-            header("location: ?action=inscription&error=2");
-        }
-
         if ($mdp != $mdpVerif) {
             header("location: ?action=inscription&error=3");
         }
 
-        if (count(User::where('email','like',$mail))){
+
+        if (count(User::where('email','like',$mail->get()))==0){
             header("location: ?action=inscription&error=1");
         }
 
         $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
 
-        $user = new User();
-        $user->login = $login;
-        $user->mdp = $mdp;
-        $user->nom = $nom;
-        $user->prenom = $prenom;
-        $user->email = $mail;
-        $user->telephone = $telephone;
-        $user->role = 0;
-        $user->save();
+
+
 
         $res = true;
 
