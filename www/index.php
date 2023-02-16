@@ -13,7 +13,9 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 session_start();
-$_SESSION['user'] = null;
+if (!isset($_SESSION['user'])) {
+    $_SESSION['user'] = null;
+}
 $action = (isset($_GET['action'])) ? $_GET['action'] : "";
 $dispatch = new Dispatcher($action);
 $dispatch->run();

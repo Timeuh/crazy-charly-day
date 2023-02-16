@@ -6,6 +6,7 @@ use custumbox\classes\afficheur\AccueilAffichage;
 use custumbox\classes\afficheur\AffcheurPanier;
 use custumbox\classes\afficheur\CatalogueAffichage;
 use custumbox\classes\afficheur\Connexion;
+use custumbox\classes\afficheur\Deconnexion;
 use custumbox\classes\afficheur\Inscription;
 use custumbox\classes\afficheur\ProduitAffichage;
 use custumbox\classes\afficheur\Profil;
@@ -46,6 +47,15 @@ class Dispatcher
                 $act = new Inscription();
                 break;
 
+            case "profil":
+                $act = new Profil();
+                break;
+
+            case "deconnexion":
+                $act = new Deconnexion();
+                break;
+
+
             default:
                 $act = new AccueilAffichage();
                 break;
@@ -68,8 +78,9 @@ class Dispatcher
     <title>Court-Circuit</title>
     <link href="styles/output.css" rel="stylesheet">
     <link rel="icon" href="documents/court-circuit-logo-rond-jaune-vert.png">
+    <script src="src/js"></script>
 </head>
-<body class="h-full w-full">
+<body class="h-full w-full" onload="initMap()">
 <div >
       <nav class="drop-shadow-2xl bg-white font-bold">
         <ul>
@@ -115,8 +126,8 @@ HTML;
                 <button class="navbarWrapper" > <a href='./' class="navbarLink">Accueil</a></button>
                 <button class="navbarWrapper" > <a href='?action=catalogue&page=1' class="navbarLink">Catalogue</a></button>
                 <button class="navbarWrapper" > <a href='?action=panier' class="navbarLink">Panier</a></button>
-                <button class="navbarWrapper" > <a href='?action=profil' class="navbarLink">profil</a></button>
-                <button class="navbarWrapper" > <a href='?action=deconnexion' class="navbarLink">deconnexion</a></button>
+                <button class="navbarWrapper" > <a href='?action=profil' class="navbarLink">Profil</a></button>
+                <button class="navbarWrapper" > <a href='?action=deconnexion' class="navbarLink">Deconnexion</a></button>
                 <button class="navbarWrapper" > <a href='?action=sign-in' class="navbarLink">A propos</a></button>
             </div>
           </div>

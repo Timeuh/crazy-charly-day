@@ -52,6 +52,7 @@ class ProduitAffichage
                     {$form}
                 </div>
             </div>
+                    <div id="map">map</div>
             EOT;
 
         if (isset($_POST['quantite']) && isset($_SESSION['user'])) {

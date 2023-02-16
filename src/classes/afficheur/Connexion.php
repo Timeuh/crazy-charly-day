@@ -44,16 +44,21 @@ class Connexion extends Action
                 $login = $_POST['login'];
                 $mdp = $_POST['pass'];
 
-                $mdp = password_hash($mdp, PASSWORD_DEFAULT, ['cost' => 12]);
+                $verify = User::select('passwd')->where('login', 'like', $login)->first();
+
+                $verif = password_verify($mdp, $verify->passwd);
 
 
-                $user = User::where('login','like',$login)->first();
-                if ($user != null){
-                    echo "<script>alert('Connexion réussie')</script>";
-                    $_SESSION['user'] = serialize($user);
-                    $res = true;
+                if ($verif) {
+                    $user = User::where('login', 'like', $login)->first();
+                    if ($user != null) {
+                        $_SESSION['user'] = serialize($user);
+                    } else {
+                        header("location: ?action=connexion&error=1&ps=$verify");
+                    }
+                    $res = "vous etes connecté";
                 }else{
-                    header("location: ?action=connexion&error=1&ps=$mdp");
+                    header("location: ?action=connexion&error=1&ps=$verify");
                 }
             }
         return $res;

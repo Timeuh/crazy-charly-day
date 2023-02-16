@@ -7,7 +7,13 @@ use custumbox\classes\data\Produit;
 class Profil
 {
     public function execute() : string {
-        $res = "<p>Bienvenue sur notre site</p>";
+        $res = "";
+        $user = unserialize($_SESSION['user']);
+        if ($user==null){
+            $res = "vous devez etre connecter";
+        }else{
+         $res =  $user->nom." ".$user->prenom;
+        }
         return $res;
     }
 }

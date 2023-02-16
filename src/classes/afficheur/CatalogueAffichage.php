@@ -48,7 +48,11 @@ class CatalogueAffichage extends Action
                 if ($nb_produits % $nb_produits_par_pages == 0) {
                     array_push($tab, $res);
                     $res = "<H2 class='font-bold ml-2 text-2xl text-center m-4 text-emerald-900'>Nos produits</H2>
-                <div class='flex flex-row justify-between'>
+            <form method='post' action='?action=catalogue&page=1&search'>
+                <input size='30%' type ='search' name='search' placeholder='Rechercher un produit'>
+            </form> 
+                <div class='flex flex-row justify-between '>
+              
                 ";
                 }
             }
