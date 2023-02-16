@@ -528,22 +528,26 @@ video {
 }
 
 .indexNavBtn:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(6 95 70 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(241 245 249 / var(--tw-text-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(6 95 70 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
 .flex {
-  display: flex;
+    display: flex;
+}
+
+.table {
+    display: table;
 }
 
 .w-36 {
-  width: 9rem;
+    width: 9rem;
 }
 
 .flex-row {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 .justify-between {
