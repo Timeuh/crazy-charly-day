@@ -12,7 +12,7 @@ class AfficheurCommande
             $commande = new Commande();
             $commande->save();
             $date = $_POST['date'];
-            $panier = $_SESSION['user']->produits;
+            $panier = unserialize($_SESSION['user'])->produits;
             foreach ($panier as $produit) {
                 $commande->contient()->attach(
                     $produit->id,
